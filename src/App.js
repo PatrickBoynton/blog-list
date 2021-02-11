@@ -1,13 +1,16 @@
-import { Component } from 'react';
+import React,{ Component } from 'react';
 import './App.css';
 
-function FullView() {
+function FullView(props) {
+  const posts = props.posts?.map((post, index) =>(
+  <React.Fragment key={index}>
+    <h1>{post.title}</h1>
+    <p>{post.text}</p>
+  </React.Fragment>
+  ));
   return (
     <section>
-      <h1>Fun Blog Post 1</h1>
-      <p>This is a post about some fun things that I did lastd week!
-        What did I do? Well Last week I programmed, then I went on vacation.
-      </p>
+      {posts}
     </section>
   )
 }
