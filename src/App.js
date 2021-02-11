@@ -1,38 +1,19 @@
-import React,{ Component } from 'react';
-import './App.css';
+import { Component } from 'react';
 
-function FullView(props) {
-  const posts = props.posts?.map((post, index) =>(
-  <React.Fragment key={index}>
-    <h1>{post.title}</h1>
-    <p>{post.text}</p>
-  </React.Fragment>
-  ));
-  return (
-    <section>
-      {posts}
-    </section>
-  )
+
+class BlogPost extends {
+
+  render() {
+
+  }
 }
 
-class BlogList extends Component {
-  render() {
-    return (
-      <aside>
-        <ul>
-        <li>
-          <h1>Fun blog post 1</h1>  
-        </li>
-        <li>
-          <h1>Fun blog post 2</h1>
-          </li>
-        <li>
-          <h1>Fun blog post 3</h1>
-        </li>
-      </ul>
-      </aside>
-    )
-  }
+function BlogList(props) {
+  const posts = props.posts?.map((post, index) => (
+    // <li>{post.title}</li>
+    <BlogPost key={index} post={post}/>
+  ));
+  return(<ul>{posts}</ul>)
 }
 
 class App extends Component {
@@ -43,26 +24,25 @@ class App extends Component {
   componentDidMount() {
     const posts = [
       {
-        title: "Blog post 1",
-        text: "Fun things happened!"
+        title: "Post Title 1",
+        text: "Some text"
       },
       {
-        title: "Blog post 2",
-        text: "Fun thing two happened!",
+        title: "Post Title 2",
+        text: "Some more text"
       },
       {
-        title: "Blog post 3",
-        text: "Fun thing three happened!",
+        title: "Post Title 3",
+        text: "Yet more text"
       }
     ]
-    this.setState({ posts });
-  }
 
-  render()  {
-    return (<div className="App">
-      <FullView />
-      <BlogList posts={this.state?.posts} />
-    </div>)
+    this.setState({ posts })
+  }
+  render() {
+    return (
+      <BlogList posts={this.state?.posts}/>
+    )
   }
 }
 
