@@ -33,6 +33,23 @@ class BlogList extends Component {
 }
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = [
+      {
+        title: "Blog post 1",
+        text: "Fun things happened!"
+      },
+      {
+        title: "Blog post 2",
+        text: "Fun thing two happened!",
+      },
+      {
+        title: "Blog post 3",
+        text: "Fun thing three happened!",
+      }
+    ]
+  }
   render()  {
     return (<div className="App">
       <FullView />
