@@ -35,7 +35,10 @@ class BlogList extends Component {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = [
+  }
+
+  componentDidMount() {
+    const posts = [
       {
         title: "Blog post 1",
         text: "Fun things happened!"
@@ -49,11 +52,13 @@ class App extends Component {
         text: "Fun thing three happened!",
       }
     ]
+    this.setState({ posts });
   }
+
   render()  {
     return (<div className="App">
       <FullView />
-      <BlogList />
+      <BlogList posts={this.state?.posts} />
     </div>)
   }
 }
