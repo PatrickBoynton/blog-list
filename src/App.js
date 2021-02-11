@@ -1,47 +1,42 @@
 import { Component } from 'react';
-
-
-class BlogPost extends {
-
-  render() {
-
-  }
-}
-
-function BlogList(props) {
-  const posts = props.posts?.map((post, index) => (
-    // <li>{post.title}</li>
-    <BlogPost key={index} post={post}/>
-  ));
-  return(<ul>{posts}</ul>)
-}
+import './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {};
   }
 
   componentDidMount() {
     const posts = [
       {
-        title: "Post Title 1",
-        text: "Some text"
+        title: "Fun thing ahead!",
+        blog: "Post 1"
       },
       {
-        title: "Post Title 2",
-        text: "Some more text"
+        title: "More fun things ahead!",
+        blog: "Post 2"
       },
       {
-        title: "Post Title 3",
-        text: "Yet more text"
+        title: "Yet more fun things ahead!",
+        blog: "Post 3"
       }
     ]
 
-    this.setState({ posts })
+    this.setState({posts});
   }
+  
+
   render() {
-    return (
-      <BlogList posts={this.state?.posts}/>
+    const posts = this.state.posts?.map((post, index) =>(
+      <li key={index}>
+          <h1 onClick={() => console.log(index)}>{post.title}</h1>
+      </li>
+    ));
+    return(
+      <ul>
+        {posts}
+      </ul>
     )
   }
 }
