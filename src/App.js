@@ -28,7 +28,7 @@ class App extends Component {
   }
 
   handleClick(index) {
-    console.log(this.state.posts[index].title);
+    // So I can access blog and title outside of the map.
     this.setState({isToggled: !this.state.isToggled, title: this.state.posts[index].title, blog: this.state.posts[index].blog});
   }
 
@@ -40,6 +40,7 @@ class App extends Component {
       </li>
     ));
     return(
+      // It works, but you need to click to hide it first.
       <>
         {
           this.state.isToggled
