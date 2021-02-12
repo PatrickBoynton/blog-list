@@ -45,10 +45,12 @@ class App extends Component {
         {
           this.state.isToggled
           ?
-          <>
+          <ul>
+            <li>
             <h1>{this.state.title}</h1>
             <p>{this.state.blog}</p>
-          </>
+            </li>
+          </ul>
           :
           null
         }
