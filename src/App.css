@@ -1,3 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 li {
   list-style: none;
+}
+
+ul {
+  text-align: center;
+  border: 1px solid #555;
+  width: 30%;
+  margin: 0 auto 2rem auto;
+  box-shadow: 5px 5px 3px #00000033;
+}
+p {
+  padding: 1rem;
+  background-color: #005566;
+  color: white;
+}
+ul:last-child {
+  padding: 2rem;
+}
+h1:not(:last-child) {
+  border-bottom: 1px solid #555;
+  padding: 1rem;
 }
