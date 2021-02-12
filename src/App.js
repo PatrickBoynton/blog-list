@@ -25,18 +25,23 @@ class App extends Component {
 
     this.setState({posts});
   }
-  
+  handleClick(index, state) {
+    
+  }
 
   render() {
     const posts = this.state.posts?.map((post, index) =>(
       <li key={index}>
-          <h1 onClick={() => console.log(index)}>{post.title}</h1>
+          <h1 id={"test-" + index} onClick={this.handleClick}>{post.title}</h1>
       </li>
     ));
     return(
-      <ul>
-        {posts}
-      </ul>
+      <>
+        <FullPosts posts={this.state?.posts}/>
+        <ul>
+          {posts}
+        </ul>
+      </>
     )
   }
 }
