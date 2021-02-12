@@ -4,7 +4,8 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {isToggled: false};
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -25,21 +26,32 @@ class App extends Component {
 
     this.setState({posts});
   }
-  handleClick(index, state) {
-    
+
+  handleClick() {
+    this.setState({isToggled: !this.state.isToggled});
   }
 
   render() {
+
     const posts = this.state.posts?.map((post, index) =>(
       <li key={index}>
-          <h1 id={"test-" + index} onClick={this.handleClick}>{post.title}</h1>
+          <h1 data-value={index} onClick={this.handleClick}>{post.title}</h1>
       </li>
     ));
     return(
       <>
-        <FullPosts posts={this.state?.posts}/>
+        {
+          this.state.isToggled 
+          ?
+          <>
+            <h1>Fun thing 1!</h1>
+            <p>Blog post 1</p>
+          </>
+          :
+          null
+        }
         <ul>
-          {posts}
+            {posts}
         </ul>
       </>
     )
