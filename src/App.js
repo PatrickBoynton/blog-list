@@ -43,6 +43,7 @@ class App extends Component {
       // It works, but you need to click to hide it first.
       <>
         {
+          // Toggles the post.
           this.state.isToggled
           ?
           <ul>
